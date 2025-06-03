@@ -1,86 +1,162 @@
-*{
+* {
     margin: 0; 
-padding: 0; 
-font-family: 'Poppins', sans-serif; 
-box-sizing: border-box; 
+    padding: 0; 
+    font-family: 'Poppins', sans-serif; 
+    box-sizing: border-box; 
 } 
-body{
-    background:#222;
+
+body {
+    background: #222;
 }
-.card{
-    width: 50%;
+
+.card {
+    width: 90%;           /* Change from fixed 50% to 90% for small screens */
     max-width: 470px;
-    background:linear-gradient(135deg,#0be9ae,#6359a8);
+    background: linear-gradient(135deg,#0be9ae,#6359a8);
     color: #fff;
     margin: 40px auto 0;
     border-radius: 17px;
     text-align: center;
+    padding: 20px;       /* Added some padding for better spacing */
 }
-.search{ 
-width: 100%; 
-display: flex; 
-align-items: center; 
-justify-content: space-between;
-margin: 30px auto;
-padding: 30px 20px;  
+
+.search { 
+    width: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    margin: 30px auto;
+    padding: 30px 20px;  
+    gap: 15px;           /* Adds gap between input and button */
 } 
-.search input{ 
-border: 0; 
-/* width: 20%;
-height: 20%; */
-outline: 0; 
-background: #ebfffc; 
-color: #333; 
-padding: 30px 40px; 
-height: 60px; 
-border-radius: 30px; 
-flex: 1; 
-margin-right: 33px; 
-font-size: 18px; 
+
+.search input { 
+    border: 0; 
+    outline: 0; 
+    background: #ebfffc; 
+    color: #333; 
+    padding: 15px 20px; /* Reduced padding for small devices */
+    height: 50px;       /* Slightly smaller height */
+    border-radius: 30px; 
+    flex: 1; 
+    margin-right: 0;    /* We'll manage spacing with gap */
+    font-size: 16px;    /* Adjust font size */
 }
-.search button{
+
+.search button {
     border: 0;
     outline: 0;
     background: white;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;        /* Smaller button on small screens */
+    height: 50px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .search button img {
-    width: 26px;
-    padding-top: 10px;
+    width: 20px;
+    padding-top: 0;
 }
-.weather-icon{
-    width: 170px;
+
+.weather-icon {
+    width: 150px;
     margin-top: 30px;
 }
-.weather h1{
-    font-size: 80px;
+
+.weather h1 {
+    font-size: 60px;   /* Smaller font size on smaller devices */
     font-weight: 500;
 }
-.weather h2{
-    font-size: 45px;
+
+.weather h2 {
+    font-size: 30px;
     font-weight: 400;
     margin-top: -10px;
 }
-.details{ 
-display: flex; 
-align-items: center; 
-justify-content: space-between; 
-padding: 0 20px; 
-margin-top: 50px; 
+
+.details { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 20px; 
+    margin-top: 50px; 
+    flex-wrap: wrap;   /* Allow wrapping on small screens */
+    gap: 20px;
 } 
-.col{ 
-display: flex; 
-align-items: center; 
-text-align: left; 
+
+.col { 
+    display: flex; 
+    align-items: center; 
+    text-align: left; 
+    flex: 1 1 45%;     /* Flex basis for two columns on bigger screens, full width on smaller */
+    min-width: 140px;  /* Minimum width for each column */
 } 
-.col img{ 
-width: 40px; 
-margin-right: 10px; 
+
+.col img { 
+    width: 40px; 
+    margin-right: 10px; 
 }
-.humidity,.wind{
-    font-size: 28px;
+
+.humidity, .wind {
+    font-size: 22px;
     margin-bottom: -6px;
+}
+
+/* MEDIA QUERIES for responsiveness */
+@media (max-width: 768px) {
+    .card {
+        width: 95%;
+        padding: 15px;
+    }
+    .search {
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+    .search input {
+        margin-right: 0;
+        margin-bottom: 15px;
+        height: 50px;
+        font-size: 16px;
+        padding: 15px 20px;
+    }
+    .search button {
+        width: 50px;
+        height: 50px;
+    }
+    .weather h1 {
+        font-size: 50px;
+    }
+    .weather h2 {
+        font-size: 25px;
+    }
+    .details {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 10px;
+    }
+    .col {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .weather h1 {
+        font-size: 40px;
+    }
+    .weather h2 {
+        font-size: 20px;
+    }
+    .search input {
+        font-size: 14px;
+        height: 45px;
+        padding: 12px 15px;
+    }
+    .search button {
+        width: 45px;
+        height: 45px;
+    }
 }
